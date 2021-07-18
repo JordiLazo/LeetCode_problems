@@ -20,12 +20,14 @@ The inverted version of this tree is as follows:
   f e  d
 '''
 
+
 # A class to store a binary tree node
 class Node:
     def __init__(self, data, left=None, right=None):
         self.data = data
         self.left = left
         self.right = right
+
 
 # Function to perform preorder traversal on a given binary tree
 def preorder(root):
@@ -61,6 +63,7 @@ def invertBinaryTree(root):
 
     # invert right subtree
     invertBinaryTree(root.right)
+
 
 if __name__ == '__main__':
     ''' Construct the following tree
