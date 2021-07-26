@@ -2,41 +2,29 @@
 Hi, here's your problem today. This problem was recently asked by Microsoft:
 
 Given a string, find the length of the longest substring without repeating characters.
-
-Here is an example solution in Python language. (Any language is OK to use in an interview,
-though we'd recommend Python as a generalist language utilized by companies like Google, Facebook, Netflix, Dropbox, Pinterest, Uber, etc.,)
 '''
 
-class Solution:
-  def lengthOfLongestSubstring(self, string):
-      seen = {}
-      maximum_lenght = 0
-      start = 0
+def lengthOfLongestSubstring(string):
+    seen = {}
+    maximum_lenght = 0
+    start = 0
 
-      for end in range(len(string)):
-          if string[end] in seen:
-              start = max(start,seen[string[end]] +1 )
-          seen[string[end]] = end
-          maximum_lenght = max(maximum_lenght, end-start +1)
+    for end in range(len(string)):
+        if string[end] in seen:
+            start = max(start,seen[string[end]] +1 )
+        seen[string[end]] = end
+        maximum_lenght = max(maximum_lenght, end-start +1)
 
-      return maximum_lenght
+    return maximum_lenght
 
 
-# Python3 program to find and print longest
-# substring without repeating characters.
-
-# Function to find and print longest
-# substring without repeating characters.
 def findLongestSubstring(string):
     n = len(string)
-
     # starting point of current substring.
     st = 0
-
     # maximum length substring without
     # repeating characters.
     maxlen = 0
-
     # starting index of maximum
     # length substring.
     start = 0
@@ -91,13 +79,8 @@ def findLongestSubstring(string):
     # to string[start+maxlen-1].
     return string[start: start + maxlen]
 
-
-
 if __name__ == '__main__':
     string = "abrkaabcdefghijjxxx"
-    print("The input string is", string)
-    lenght = Solution().lengthOfLongestSubstring(string)
-    print("The length of the longest non-repeating character" +" substring is ", lenght)
-
-    string = "abrkaabcdefghijjxxx"
-    print(findLongestSubstring(string))
+    print("The input string is:", string)
+    print("The length of the longest non-repeating character substring is:", lengthOfLongestSubstring(string))
+    print("The substring with the longest non-repeating character is:",findLongestSubstring(string))
