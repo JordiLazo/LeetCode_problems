@@ -25,6 +25,7 @@ def longestPalindrome(s):
         test = helper(i, i+1)
         if len(test) > len(res):
             res = test
+        print(res)
     return res
 
 if __name__ == '__main__':
@@ -32,3 +33,6 @@ if __name__ == '__main__':
     print(longestPalindrome(string))
     string = "banana"
     print(longestPalindrome(string))
+    string2 = "million"
+    string3 = string2[1:2]
+    print(string3)
