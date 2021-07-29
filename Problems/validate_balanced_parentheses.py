@@ -19,3 +19,27 @@ Output: True
 Input: "({[)]"
 Output: False
 '''
+
+open_list = ["[","{","("]
+close_list = ["]","}",")"]
+
+def validate_parentheses(string):
+    stack = []
+    for i in string:
+        if i in open_list:
+            stack.append(i)
+        else:
+            pos = close_list.index(i)
+            print(len(stack))
+            if (len(stack) > 0) and (open_list[pos] == stack[len(stack)-1]):
+                stack.pop()
+            else:
+                return "Unbalanced"
+    if len(stack) == 0:
+        return "Balanced"
+    else:
+        return "Unbalanced"
+
+if __name__ == '__main__':
+    string = "]](("
+    print(string, "-", validate_parentheses(string))
